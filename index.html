@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F1311">
+<title>Грузинская кухня на фудкорте - демонстрационный макет</title>
+<meta name="description" content="Грузинская кухня на фудкорте: меню, корзина и заказ на сайте. Демонстрационный макет.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Onest:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+/* Hallmark · macrostructure: Long Document (меню-свиток со строками, корзина сбоку) · genre: editorial · tone: warm, appetizing · anchor hue: pomegranate 20
+   Тема: свой набор (тёмная бумага цвета вина, сливочный текст, шафран как единственный акцент, гранат для кнопки). Шрифты: Alegreya (заголовки, roman) + Onest (текст), кириллица, OFL.
+   Pre-emit critique: P4 H4 E4 S4 R4 V4 */
+:root{
+  --color-paper:#1F1311;
+  --color-paper-2:#2B1B18;
+  --color-ink:#F6EBDD;
+  --color-ink-2:#CDBBA8;
+  --color-line:#4A3029;
+  --color-accent:#E3A93C;
+  --color-pomegranate:#B3303F;
+  --color-pomegranate-ink:#8E2431;
+  --color-crust:#C98A4B;
+  --color-cheese:#F2D58A;
+  --color-yolk:#E38A1E;
+  --color-white:#FFFFFF;
+  --color-need:#E8C45A;
+  --font-display:'Alegreya',Georgia,serif;
+  --font-body:'Onest',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --space-xs:.5rem; --space-sm:1rem; --space-md:1.5rem; --space-lg:3rem; --space-xl:5rem;
+  --radius-pill:999px; --radius-sm:12px;
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+  --edge:max(1.25rem,env(safe-area-inset-left),env(safe-area-inset-right));
+}
+*{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--color-paper);color:var(--color-ink);font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;
+  padding-top:env(safe-area-inset-top);padding-bottom:calc(env(safe-area-inset-bottom) + 5rem)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;font-style:normal;line-height:1.05;margin:0;letter-spacing:-.005em;overflow-wrap:anywhere;min-width:0}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-left:var(--edge);padding-right:var(--edge)}
+:focus-visible{outline:3px solid var(--color-accent);outline-offset:3px;border-radius:4px}
+.need{color:var(--color-need);font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;min-height:48px;padding:.75rem 1.5rem;border-radius:var(--radius-pill);
+  font:600 1rem/1 var(--font-body);text-decoration:none;border:1.5px solid var(--color-accent);cursor:pointer;
+  transition:background-color .2s var(--ease-out),color .2s var(--ease-out),border-color .2s var(--ease-out),opacity .2s var(--ease-out)}
+.btn-main{background:var(--color-pomegranate);border-color:var(--color-pomegranate);color:var(--color-white)}
+.btn-main:hover{background:var(--color-pomegranate-ink);border-color:var(--color-pomegranate-ink)}
+.btn-line{background:transparent;color:var(--color-accent)}
+.btn-line:hover{background:var(--color-accent);color:var(--color-paper)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:active:not(:disabled){transform:translateY(1px)}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--color-paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--color-line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.brand{font:800 1.45rem/1 var(--font-display);text-decoration:none;white-space:nowrap}
+.nav{display:none;gap:1.75rem}
+.nav a{text-decoration:none;font-size:.95rem;color:var(--color-ink-2);white-space:nowrap}
+.nav a:hover{color:var(--color-accent)}
+@media(min-width:900px){.nav{display:flex}}
+.top .btn{min-height:44px;padding:.6rem 1.2rem;font-size:.95rem}
+@media(max-width:420px){.brand{font-size:1.15rem;white-space:normal;line-height:1.05}.top .btn{padding:.6rem .9rem;font-size:.9rem;flex:none}}
+
+/* первый экран */
+.hero{padding:var(--space-lg) 0 var(--space-xl)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.hero h1{font-size:clamp(2.9rem,6.4vw,5.6rem);font-weight:800}
+.hero .lead{margin-top:var(--space-md);max-width:34rem;color:var(--color-ink-2);font-size:1.15rem}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:var(--space-lg)}
+.hero .facts{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin:var(--space-md) 0 0;padding:0;list-style:none;color:var(--color-ink-2);font-size:.95rem}
+.hero .facts li::before{content:"";display:inline-block;width:.45rem;height:.45rem;border-radius:50%;background:var(--color-accent);margin-right:.55rem;vertical-align:.1em}
+.boat{justify-self:center;position:relative;width:min(100%,360px);aspect-ratio:1.6/1}
+.boat .crust{position:absolute;inset:0;background:var(--color-crust);border-radius:50%;box-shadow:inset 0 -14px 24px rgba(0,0,0,.28)}
+.boat .cheese{position:absolute;inset:14% 10%;background:var(--color-cheese);border-radius:50%;box-shadow:inset 0 -10px 18px rgba(0,0,0,.14)}
+.boat .yolk{position:absolute;left:50%;top:50%;width:26%;aspect-ratio:1;transform:translate(-50%,-50%);background:var(--color-yolk);border-radius:50%;box-shadow:inset 0 -6px 10px rgba(0,0,0,.2)}
+@media(max-width:820px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.boat{width:220px;justify-self:start}}
+
+/* меню */
+section{padding:var(--space-xl) 0;border-top:1px solid var(--color-line)}
+.sec-title{font-size:clamp(2rem,4.4vw,3.4rem);margin-bottom:var(--space-md)}
+.sec-lead{color:var(--color-ink-2);max-width:40rem;margin-bottom:var(--space-lg)}
+.notice{border:1.5px dashed var(--color-need);border-radius:var(--radius-sm);padding:.75rem 1rem;margin-bottom:var(--space-lg);color:var(--color-need);font-size:.95rem}
+.menu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,22rem);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+@media(max-width:960px){.menu{grid-template-columns:minmax(0,1fr)}}
+.cat+.cat{margin-top:var(--space-lg)}
+.cat h3{font-size:1.9rem;margin-bottom:.5rem;color:var(--color-accent)}
+.dishes{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--color-ink-2)}
+.dish{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.25rem 1.25rem;padding:1.1rem 0;border-bottom:1px solid var(--color-line);align-items:center}
+.dish h4{font:700 1.35rem/1.15 var(--font-display);margin:0}
+.dish p{grid-column:1;color:var(--color-ink-2);font-size:.95rem}
+.dish .buy{grid-column:2;grid-row:1 / span 2;display:flex;align-items:center;gap:.75rem}
+.price{white-space:nowrap;font-weight:600}
+.ctl{display:inline-flex;align-items:center;border:1.5px solid var(--color-accent);border-radius:var(--radius-pill)}
+.ctl button{width:44px;height:44px;border:0;background:transparent;color:var(--color-accent);font:600 1.3rem/1 var(--font-body);cursor:pointer;border-radius:var(--radius-pill);transition:background-color .2s var(--ease-out)}
+.ctl button:hover{background:var(--color-line)}
+.ctl output{min-width:1.6rem;text-align:center;font-weight:600}
+.add{min-height:44px;padding:.6rem 1.2rem;font-size:.95rem}
+@media(max-width:520px){.dish{grid-template-columns:minmax(0,1fr)}.dish .buy{grid-column:1;grid-row:auto;justify-content:space-between;margin-top:.5rem}}
+
+/* корзина */
+.cart{position:sticky;top:5rem;background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-sm);padding:var(--space-md)}
+@media(max-width:960px){.cart{position:static}}
+.cart h3{font-size:1.7rem;margin-bottom:var(--space-sm)}
+.cart ul{list-style:none;margin:0 0 var(--space-sm);padding:0;display:grid;gap:.5rem}
+.cart li{display:flex;justify-content:space-between;gap:1rem;font-size:.98rem;border-bottom:1px solid var(--color-line);padding-bottom:.5rem}
+.cart .empty{color:var(--color-ink-2)}
+.total{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;font-size:1.15rem;margin-bottom:var(--space-md)}
+form{display:grid;gap:var(--space-sm)}
+label.f{display:grid;gap:.35rem;font-weight:500;font-size:.95rem}
+input[type=text],input[type=tel]{width:100%;min-height:48px;padding:.7rem .9rem;border:1.5px solid var(--color-ink-2);border-radius:var(--radius-sm);background:var(--color-paper);font:400 1rem var(--font-body);color:var(--color-ink)}
+input[type=text]:hover,input[type=tel]:hover{border-color:var(--color-accent)}
+.consent{display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;color:var(--color-ink-2)}
+.consent input{width:22px;height:22px;margin-top:.15rem;accent-color:var(--color-pomegranate);flex:none}
+.msg{min-height:1.5rem;font-size:.95rem;color:var(--color-accent)}
+.fine{font-size:.88rem;color:var(--color-ink-2)}
+
+/* плавающая кнопка корзины */
+.pillcart{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + .9rem);z-index:20;display:none}
+.pillcart.on{display:inline-flex}
+.pillcart{box-shadow:0 8px 24px rgba(0,0,0,.45)}
+@media(min-width:961px){.pillcart{display:none!important}}
+
+/* контакты */
+.contacts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:var(--space-md)}
+.contacts .btn{min-height:44px;padding:.6rem 1.1rem;font-size:.95rem}
+.hours{margin-top:var(--space-md);color:var(--color-ink-2)}
+footer{border-top:1px solid var(--color-line);padding:var(--space-lg) 0 var(--space-xl);color:var(--color-ink-2);font-size:.9rem}
+footer .wrap{display:grid;gap:.5rem}
+
+/* слой анимации: маска для слов заголовков */
+.m-w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .02em .14em;margin-bottom:-.14em}
+.m-w>i{display:inline-block;font-style:inherit;will-change:transform}
+@media(prefers-reduced-motion:reduce){.m-w,.m-w>i{overflow:visible}*{transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="need">&lt;&lt;название точки&gt;&gt;</span></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#menu">Меню</a>
+      <a href="#zakaz">Корзина</a>
+      <a href="#kontakty">Где нас найти</a>
+    </nav>
+    <a class="btn btn-main" href="#menu">Заказать</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Грузинская кухня на фудкорте</h1>
+        <p class="lead">Хинкали, хачапури, шашлык и закуски. Выберите блюда на сайте, оформите заказ и заберите горячим на фудкорте <span class="need">&lt;&lt;название ТЦ и этаж&gt;&gt;</span>.</p>
+        <div class="cta">
+          <a class="btn btn-main" href="#menu">Выбрать блюда</a>
+          <a class="btn btn-line" href="#kontakty">Как нас найти</a>
+        </div>
+        <ul class="facts">
+          <li>Заказ за пару минут</li>
+          <li>Заявка сразу приходит на кухню</li>
+          <li>Способы получения: <span class="need">&lt;&lt;самовывоз, доставка - запросить&gt;&gt;</span></li>
+        </ul>
+      </div>
+      <div class="boat" aria-hidden="true"><span class="crust"></span><span class="cheese"></span><span class="yolk"></span></div>
+    </div>
+  </div>
+
+  <section id="menu" aria-labelledby="menu-h">
+    <div class="wrap">
+      <h2 class="sec-title" id="menu-h">Меню</h2>
+      <p class="sec-lead">Названия блюд - классика грузинской кухни, как пример структуры. Ваш реальный список, составы, граммовки и фото подставим из ваших данных.</p>
+      <p class="notice">Цены в демо условные (одинаковые для всех блюд), чтобы работала корзина. Реальные цены: <span class="need">&lt;&lt;запросить у заказчика&gt;&gt;</span></p>
+      <div class="menu">
+        <div>
+          <div class="cat">
+            <h3>Хинкали и хачапури</h3>
+            <ul class="dishes">
+              <li class="dish" data-id="h1" data-name="Хинкали" data-price="100"><h4>Хинкали</h4><p>Состав и вес порции: <span class="need">&lt;&lt;уточнить&gt;&gt;</span></p><div class="buy"><span class="price need">100 ₽ (условно)</span></div></li>
+              <li class="dish" data-id="h2" data-name="Хачапури по-аджарски" data-price="100"><h4>Хачапури по-аджарски</h4><p>Лодочка с сыром и яйцом. Вес: <span class="need">&lt;&lt;уточнить&gt;&gt;</span></p><div class="buy"><span class="price need">100 ₽ (условно)</span></div></li>
+              <li class="dish" data-id="h3" data-name="Хачапури по-имеретински" data-price="100"><h4>Хачапури по-имеретински</h4><p>Закрытая лепёшка с сыром. Вес: <span class="need">&lt;&lt;уточнить&gt;&gt;</span></p><div class="buy"><span class="price need">100 ₽ (условно)</span></div></li>
+            </ul>
+          </div>
+          <div class="cat">
+            <h3>Горячее</h3>
+            <ul class="dishes">
+              <li class="dish" data-id="g1" data-name="Шашлык" data-price="100"><h4>Шашлык</h4><p>Из чего и сколько граммов: <span class="need">&lt;&lt;уточнить&gt;&gt;</span></p><div class="buy"><span class="price need">100 ₽ (условно)</span></div></li>
+              <li class="dish" data-id="g2" data-name="Харчо" data-price="100"><h4>Харчо</h4><p>Густой суп. Объём порции: <span class="need">&lt;&lt;уточнить&gt;&gt;</span></p><div class="buy"><span class="price need">100 ₽ (условно)</span></div></li>
+              <li class="dish" data-id="g3" data-name="Чахохбили" data-price="100"><h4>Чахохбили</h4><p>Тушёная курица с томатами. Вес: <span class="need">&lt;&lt;уточнить&gt;&gt;</span></p><div class="buy"><span class="price need">100 ₽ (условно)</span></div></li>
+            </ul>
+          </div>
+          <div class="cat">
+            <h3>Закуски</h3>
+            <ul class="dishes">
+              <li class="dish" data-id="z1" data-name="Лобио" data-price="100"><h4>Лобио</h4><p>Фасоль с пряностями. Вес: <span class="need">&lt;&lt;уточнить&gt;&gt;</span></p><div class="buy"><span class="price need">100 ₽ (условно)</span></div></li>
+              <li class="dish" data-id="z2" data-name="Пхали" data-price="100"><h4>Пхали</h4><p>Закуска из овощей с ореховой заправкой. Вес: <span class="need">&lt;&lt;уточнить&gt;&gt;</span></p><div class="buy"><span class="price need">100 ₽ (условно)</span></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="cart" id="zakaz" aria-labelledby="cart-h">
+          <h3 id="cart-h">Ваш заказ</h3>
+          <ul id="cart-list" aria-live="polite"><li class="empty">Корзина пуста. Добавьте блюда из меню.</li></ul>
+          <p class="total"><span>Итого</span><span id="cart-total">0 ₽</span></p>
+          <form id="form" novalidate>
+            <label class="f">Имя<input type="text" name="name" autocomplete="given-name" required></label>
+            <label class="f">Телефон<input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>
+            <label class="f">Комментарий к заказу<input type="text" name="comment"></label>
+            <label class="consent">
+              <input type="checkbox" id="agree">
+              <span>Я даю согласие на обработку персональных данных и принимаю <a href="#" class="need" onclick="return false">политику обработки данных &lt;&lt;запросить у заказчика&gt;&gt;</a>.</span>
+            </label>
+            <button class="btn btn-main" id="send" type="submit" disabled>Оформить заказ</button>
+            <p class="msg" id="msg" role="status" aria-live="polite"></p>
+          </form>
+          <p class="fine">Онлайн-оплата не входит в этот макет. Как принимаете оплату: <span class="need">&lt;&lt;запросить у заказчика&gt;&gt;</span></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakty" aria-labelledby="kont-h">
+    <div class="wrap">
+      <h2 class="sec-title" id="kont-h">Где нас найти</h2>
+      <p>Фудкорт: <span class="need">&lt;&lt;название ТЦ, адрес, этаж&gt;&gt;</span></p>
+      <p class="hours">Часы работы: <span class="need">&lt;&lt;запросить у заказчика&gt;&gt;</span></p>
+      <div class="contacts">
+        <a class="btn btn-line" href="tel:+78888888888">+7 (888) 888-88-88</a>
+        <span class="btn btn-line need" aria-disabled="true">Telegram &lt;&lt;ссылка&gt;&gt;</span>
+        <span class="btn btn-line need" aria-disabled="true">MAX &lt;&lt;ссылка&gt;&gt;</span>
+        <span class="btn btn-line need" aria-disabled="true">ВКонтакте &lt;&lt;ссылка&gt;&gt;</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="btn btn-main pillcart" id="pill" href="#zakaz">Корзина: <span id="pill-n">0</span> · <span id="pill-sum">0 ₽</span></a>
+
+<footer>
+  <div class="wrap">
+    <p>Демонстрационный макет, не является официальным сайтом организации. Данные вымышленные.</p>
+    <p>Оператор персональных данных и реквизиты: <span class="need">&lt;&lt;запросить у заказчика&gt;&gt;</span></p>
+  </div>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script src="motion.js" defer></script>
+<script>
+(function(){
+  var cart={}, dishes={};
+  var list=document.getElementById('cart-list'), totalEl=document.getElementById('cart-total');
+  var pill=document.getElementById('pill'), pillN=document.getElementById('pill-n'), pillSum=document.getElementById('pill-sum');
+  var agree=document.getElementById('agree'), send=document.getElementById('send'), form=document.getElementById('form'), msg=document.getElementById('msg');
+  function money(n){return n.toLocaleString('ru-RU')+' ₽';}
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  document.querySelectorAll('.dish').forEach(function(li){
+    var id=li.dataset.id; dishes[id]={name:li.dataset.name,price:+li.dataset.price};
+    var buy=li.querySelector('.buy');
+    buy.insertAdjacentHTML('beforeend','<button type="button" class="btn btn-line add" data-add="'+id+'">В корзину</button>'+
+      '<span class="ctl" hidden><button type="button" data-minus="'+id+'" aria-label="Убрать '+esc(li.dataset.name)+'">&minus;</button><output aria-live="polite">1</output><button type="button" data-plus="'+id+'" aria-label="Добавить '+esc(li.dataset.name)+'">+</button></span>');
+  });
+
+  function render(){
+    var n=0,sum=0,html='';
+    Object.keys(cart).forEach(function(id){
+      var q=cart[id]; if(!q) return;
+      n+=q; sum+=q*dishes[id].price;
+      html+='<li><span>'+esc(dishes[id].name)+' × '+q+'</span><span>'+money(q*dishes[id].price)+'</span></li>';
+    });
+    list.innerHTML=html||'<li class="empty">Корзина пуста. Добавьте блюда из меню.</li>';
+    totalEl.textContent=money(sum);
+    pillN.textContent=n; pillSum.textContent=money(sum);
+    pill.classList.toggle('on',n>0);
+    document.querySelectorAll('.dish').forEach(function(li){
+      var id=li.dataset.id,q=cart[id]||0;
+      li.querySelector('.add').hidden=q>0;
+      var ctl=li.querySelector('.ctl'); ctl.hidden=q===0; ctl.querySelector('output').textContent=q;
+    });
+    send.disabled=!(agree.checked&&n>0);
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('button'); if(!t) return;
+    var id=t.dataset.add||t.dataset.plus||t.dataset.minus; if(!id) return;
+    cart[id]=cart[id]||0;
+    if(t.dataset.add||t.dataset.plus) cart[id]+=1; else cart[id]=Math.max(0,cart[id]-1);
+    render();
+  });
+  agree.addEventListener('change',render);
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(send.disabled) return;
+    msg.textContent='Это демо: заказ никуда не отправляется. В готовом сайте он придёт владельцу в Telegram и на почту.';
+  });
+  render();
+})();
+</script>
+</body>
+</html>
