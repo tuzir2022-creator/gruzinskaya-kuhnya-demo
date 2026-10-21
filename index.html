@@ -94,14 +94,14 @@ section{padding:var(--space-xl) 0;border-top:1px solid var(--color-line)}
 .dish{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.25rem 1.25rem;padding:1.1rem 0;border-bottom:1px solid var(--color-line);align-items:center}
 .dish h4{font:700 1.35rem/1.15 var(--font-display);margin:0}
 .dish p{grid-column:1;color:var(--color-ink-2);font-size:.95rem}
-.dish .buy{grid-column:2;grid-row:1 / span 2;display:flex;align-items:center;gap:.75rem}
+.dish .buy{grid-column:2;grid-row:1 / span 2;display:flex;align-items:center;gap:.75rem;min-width:0}
 .price{white-space:nowrap;font-weight:600}
 .ctl{display:inline-flex;align-items:center;border:1.5px solid var(--color-accent);border-radius:var(--radius-pill)}
 .ctl button{width:44px;height:44px;border:0;background:transparent;color:var(--color-accent);font:600 1.3rem/1 var(--font-body);cursor:pointer;border-radius:var(--radius-pill);transition:background-color .2s var(--ease-out)}
 .ctl button:hover{background:var(--color-line)}
 .ctl output{min-width:1.6rem;text-align:center;font-weight:600}
 .add{min-height:44px;padding:.6rem 1.2rem;font-size:.95rem}
-@media(max-width:520px){.dish{grid-template-columns:minmax(0,1fr)}.dish .buy{grid-column:1;grid-row:auto;justify-content:space-between;margin-top:.5rem}}
+@media(max-width:520px){.dish{grid-template-columns:minmax(0,1fr)}.dish .buy{grid-column:1;grid-row:auto;justify-content:space-between;flex-wrap:wrap;margin-top:.5rem}.price{white-space:normal}}
 
 /* корзина */
 .cart{position:sticky;top:5rem;background:var(--color-paper-2);border:1px solid var(--color-line);border-radius:var(--radius-sm);padding:var(--space-md)}
@@ -122,7 +122,7 @@ input[type=text]:hover,input[type=tel]:hover{border-color:var(--color-accent)}
 
 /* плавающая кнопка корзины */
 .pillcart{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + .9rem);z-index:20;display:none}
-.pillcart.on{display:inline-flex}
+.pillcart.on{display:inline-flex;gap:.4rem}
 .pillcart{box-shadow:0 8px 24px rgba(0,0,0,.45)}
 @media(min-width:961px){.pillcart{display:none!important}}
 
